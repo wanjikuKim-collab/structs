@@ -1,9 +1,18 @@
+  // refactoring with structs
+  struct Rectangle{
+    width: u32,
+    height: u32,
+} 
 fn main(){
-    //refactoring with tuples
-    let rect1 =(10,20);
-    println!("The area of the rectangle is :{}", area(rect1));
+
+    let rect1= Rectangle{
+        width: 10,
+        height: 20,
+    };
+ 
+    println!("The area of the rectangle is :{}", area(&rect1));
  }
  
- fn area(dimensions: (u32, u32))->u32{
-    dimensions.0 * dimensions.1
+ fn area(rectangle: &Rectangle)->u32{
+    rectangle.width * rectangle.height
  }
