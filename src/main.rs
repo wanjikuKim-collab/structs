@@ -35,4 +35,11 @@ fn main(){
     println!("The area of the rectangle is :{}", rect1.area());
  }
 
- 
+ fn build_user(username: String, email: String)-> User{
+    User{
+        active: true,
+        username,
+        email,
+        sign_in_count: 5,
+    }
+}
