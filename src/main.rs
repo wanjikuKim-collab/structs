@@ -31,6 +31,7 @@ fn main(){
     };
 
     kimmy.active = false;
+    let Claire = build_user(String::from("Claire"), String::from("claire@gmail.com"));
  
     println!("The area of the rectangle is :{}", rect1.area());
  }
