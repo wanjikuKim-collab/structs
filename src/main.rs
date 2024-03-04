@@ -4,6 +4,13 @@ struct Rectangle{
     length:u32
 }
 
+// the method can either take ownership, a reference(mut or unimmutable)
+impl Rectangle{
+    fn area(&self)-> u32{
+        self.width * self.length
+    }
+}
+
 #[derive(Debug)]
 struct User {
     username: String,
@@ -18,7 +25,7 @@ fn main(){
         length: 50
     };
 
-    println!("The area of my rectangle is {}", area(&rect1));
+    println!("The area of my rectangle is {}",rect1.area());
     println!("My rect1 instance is: {:#?}", &rect1);
 
     let mut kimmy = User{
@@ -49,6 +56,6 @@ fn main(){
     }
  }
 
- fn area (rectangle: &Rectangle) ->u32{
-    rectangle.length * rectangle.width
- }
+//  fn area (rectangle: &Rectangle) ->u32{
+//     rectangle.length * rectangle.width
+//  }
