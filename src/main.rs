@@ -1,14 +1,7 @@
-  // refactoring with structs
 #[derive(Debug)]
 struct Rectangle{
-    width: u32,
-    height: u32,
-} 
-
-impl Rectangle {
-    fn area(&self) -> u32{
-        self.width * self.height
-    }    
+    width:u32,
+    length:u32
 }
 
 #[derive(Debug)]
@@ -18,11 +11,15 @@ struct User {
     active: bool,
     sign_in_count: i32,
 }
+
 fn main(){
-    let rect1= Rectangle{
-        width: 20,
-        height: 20,
+    let rect1 = Rectangle{
+        width: 30,
+        length: 50
     };
+
+    println!("The area of my rectangle is {}", area(&rect1));
+    println!("My rect1 instance is: {:#?}", &rect1);
 
     let mut kimmy = User{
         username: String::from("Kimmy"),
@@ -39,11 +36,10 @@ fn main(){
         ..kimmy
     };
  
-    println!("The area of the rectangle is :{}", rect1.area());
     println!("My new users are {:#?} and {:#?}", claire, emy);
     println!("My name is {:?} and I've signed in {:?} times", kimmy.username, kimmy.sign_in_count);
  }  
-
+ 
  fn build_user(username: String, email: String)-> User{
     User{
         active: true,
@@ -51,4 +47,8 @@ fn main(){
         email,
         sign_in_count: 5,
     }
-}
+ }
+
+ fn area (rectangle: &Rectangle) ->u32{
+    rectangle.length * rectangle.width
+ }
