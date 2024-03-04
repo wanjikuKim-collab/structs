@@ -15,6 +15,17 @@ impl Rectangle{
     }
 }
 
+//Associated functions
+impl Rectangle {
+    fn Square(size: u32) -> Rectangle {
+        Rectangle{
+            width: size,
+            length: size,
+        }
+    }
+    
+}
+
 #[derive(Debug)]
 struct User {
     username: String,
@@ -40,10 +51,13 @@ fn main(){
         length: 200
     };
 
+    // creating instance for an associated fn 
+    let square = Rectangle::Square(25);
 
     println!("The area of my rect1 is {}",rect1.area());
     println!("The area of my rect2 is {}",rect2.area());
     println!("The area of my rect3 is {}",rect3.area());
+    println!("The area of my square is {}",square.area());
     println!("My rect1 instance is: {:#?}", &rect1);
     println!("rect1 can hold rect2 ? {}", rect1.can_hold(&rect2));
     println!("rect2 can hold rect1 ? {}", rect2.can_hold(&rect1));
