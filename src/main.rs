@@ -1,5 +1,5 @@
   // refactoring with structs
-  #[derive(Debug)]
+#[derive(Debug)]
 struct Rectangle{
     width: u32,
     height: u32,
@@ -11,6 +11,7 @@ impl Rectangle {
     }    
 }
 
+#[derive(Debug)]
 struct User {
     username: String,
     email: String,
@@ -31,10 +32,17 @@ fn main(){
     };
 
     kimmy.active = false;
-    let Claire = build_user(String::from("Claire"), String::from("claire@gmail.com"));
+    let claire = build_user(String::from("Claire"), String::from("claire@gmail.com"));
+    let emy = User{
+        username: String::from("Emy Kimani"),
+        email: String::from("emy@gmail.com"),
+        ..kimmy
+    };
  
     println!("The area of the rectangle is :{}", rect1.area());
- }
+    println!("My new users are {:#?} and {:#?}", claire, emy);
+    println!("My name is {:?} and I've signed in {:?} times", kimmy.username, kimmy.sign_in_count);
+ }  
 
  fn build_user(username: String, email: String)-> User{
     User{
