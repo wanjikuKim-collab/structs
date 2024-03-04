@@ -22,6 +22,13 @@ fn main(){
         width: 20,
         height: 20,
     };
+
+    let kimmy = User{
+        username: String::from("Kimmy"),
+        email: String::from("kimmy@gmail.com"),
+        active: true,
+        sign_in_count: 5,
+    };
  
     println!("The area of the rectangle is :{}", rect1.area());
  }
