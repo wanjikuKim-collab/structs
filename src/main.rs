@@ -10,8 +10,8 @@ impl Rectangle{
         self.width * self.length
     }
 
-    fn can_hold (&self, other: Rectangle) ->bool {
-        self.width > other.width && self.length > other.length
+    fn can_hold (&self, other: &Rectangle) ->bool {
+        self.area() >= other.area()
     }
 }
 
@@ -24,15 +24,36 @@ struct User {
 }
 
 fn main(){
+    //Rectangle instances
     let rect1 = Rectangle{
         width: 30,
         length: 50
     };
-    
 
-    println!("The area of my rectangle is {}",rect1.area());
+    let rect2 = Rectangle{
+        width: 40,
+        ..rect1
+    };
+
+    let rect3 = Rectangle{
+        width: 20,
+        length: 200
+    };
+
+
+    println!("The area of my rect1 is {}",rect1.area());
+    println!("The area of my rect2 is {}",rect2.area());
+    println!("The area of my rect3 is {}",rect3.area());
     println!("My rect1 instance is: {:#?}", &rect1);
+    println!("rect1 can hold rect2 ? {}", rect1.can_hold(&rect2));
+    println!("rect2 can hold rect1 ? {}", rect2.can_hold(&rect1));
+    println!("rect2 can hold rect3 ? {}", rect2.can_hold(&rect3));
+    println!("rect3 can hold rect2 ? {}", rect3.can_hold(&rect2));
 
+
+
+
+    //User instances
     let mut kimmy = User{
         username: String::from("Kimmy"),
         email: String::from("kimmy@gmail.com"),
