@@ -8,8 +8,14 @@ struct Rectangle{
 impl Rectangle {
     fn area(&self) -> u32{
         self.width * self.height
-    }
-    
+    }    
+}
+
+struct User {
+    username: String,
+    email: String,
+    active: bool,
+    sign_in_count: i32,
 }
 fn main(){
     let rect1= Rectangle{
